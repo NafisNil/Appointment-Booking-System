@@ -61,18 +61,18 @@
 
             </ul>
           </li>
-         
-       {{--  <li class="nav-item">
-            <a href="{{route('prefer.index')}}" class="nav-link {{$route == 'prefer.index'?'active':''}}">
+         <hr>
+        <li class="nav-item">
+            <a href="{{route('doctor.index')}}" class="nav-link {{$route == 'doctor.index'?'active':''}}">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Preferred Type
+                Doctor List
                 
               </p>
             </a>
           </li>
---}}
-         
+
+         <hr>
 
         </ul>
       </nav>

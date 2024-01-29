@@ -11,7 +11,7 @@ class DoctorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,19 @@ class DoctorRequest extends FormRequest
     {
         return [
             //
+            'name' => 'required',
+            'email' => 'required',
+            'designation' =>'required',
+            'education' => 'required',
+            'logo' => 'required|mimes:jpg,jpeg,webp,svg,png,gif',
+            'experience' => 'required',
+            'age' => 'required|max:3',
+            'type' => 'required',
+            'phone' => 'required',
+            'location' => 'required',
+         
+            'password' => 'required|min:6',
+            'confirm_password' => 'required|same:password'
         ];
     }
 }

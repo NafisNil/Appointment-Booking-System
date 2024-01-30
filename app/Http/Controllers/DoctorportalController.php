@@ -48,7 +48,7 @@ class DoctorportalController extends Controller
             'phone' => $request->phone,
             'address' => $request->location,
            'password' => Hash::make($request->password),
-            'role' => '2'
+            'role' => $request->role
 
         ]);
        
@@ -104,6 +104,7 @@ class DoctorportalController extends Controller
     public function destroy(string $id)
     {
         //
+        $doctor = User::find($id);
         if(!empty($doctor->logo));
         @unlink('storage/'.$doctor->logo);
        

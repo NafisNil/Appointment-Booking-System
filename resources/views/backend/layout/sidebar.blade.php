@@ -72,6 +72,16 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{route('category.index')}}" class="nav-link {{$route == 'category.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                category List
+                
+              </p>
+            </a>
+          </li>
+
          <hr>
 
         </ul>

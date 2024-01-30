@@ -25,8 +25,8 @@
   <div class="form-group">
     <label for="exampleInputEmail1">Location <span style="color:red" >*</span></label>
    
-    <textarea name="location" id="" cols="30" rows="10" class="form-control">{!!old('location',@$edit->location)!!}</textarea>
-   
+    <textarea name="location" id="" cols="30" rows="10" class="form-control">{!!old('location',@$edit->address)!!}</textarea>
+   <input type="hidden" name="role" value="2">
   </div>
 
   <div class="form-group">

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PackageRequest extends FormRequest
+class SlotRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,8 @@ class PackageRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required',
-            'amount' => 'required',
-            'description' => 'required',
-            'category_id' => 'required',
+            'time' => 'required',
+            'day' => 'required',
             'doctor_id' => 'required'
         ];
     }

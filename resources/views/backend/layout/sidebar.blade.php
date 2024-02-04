@@ -82,6 +82,26 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{route('slot.index')}}" class="nav-link {{$route == 'slot.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Slot List
+                
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('package.index')}}" class="nav-link {{$route == 'package.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Package List
+                
+              </p>
+            </a>
+          </li>
+
          <hr>
 
         </ul>

@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/magnific-popup.css">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('dist/css/iziToast.min.css') }}">
 </head>
 
 <body class="body__bg" data-bgimg="{{asset('frontend')}}/assets/css/bg.jpg">
@@ -67,7 +68,7 @@
     <script src="{{asset('frontend')}}/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="{{asset('frontend')}}/assets/js/jquery.counterup.min.js"></script>
     <script src="{{asset('frontend')}}/assets/js/jquery-waypoints.js"></script>
-
+    <script src="{{ asset('dist/js/iziToast.min.js') }}"></script>
     <!-- Main JS -->
     <script src="{{asset('frontend')}}/assets/js/main.js"></script>
 

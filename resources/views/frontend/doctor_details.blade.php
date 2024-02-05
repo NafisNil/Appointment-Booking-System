@@ -52,7 +52,7 @@
     <p>&nbsp;</p>
     <p>{{ $doctor->phone }}</p>
                                 </div>
-                                <a href="" class="btn btn-outline-success">Book Now</a>
+                                <a href="{{ route('appointment_page', $doctor->id) }}" class="btn btn-outline-success">Book Now</a>
                             </div>
                         </div>
                     </div>

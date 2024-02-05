@@ -23,7 +23,14 @@ class AppointmentRequest extends FormRequest
     {
         return [
             //
-            'trx_id' => 'required'
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric',
+            'address' => 'required',
+            'age' => 'required',
+            'gender' => 'required',
+            'package_id' => 'required',
+            'slot_id' => 'required'
         ];
     }
 }

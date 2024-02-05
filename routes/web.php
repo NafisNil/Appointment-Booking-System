@@ -29,7 +29,7 @@ use App\Http\Controllers\DoctorportalController;
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/doctor_details/{id}', [FrontendController::class, 'doctor_details'])->name('doctor_details');
 Route::get('/appointment_page/{id}', [FrontendController::class, 'appointment_page'])->name('appointment_page');
-
+Route::post('/appointment_info_store', [FrontendController::class, 'appointment_info_store'])->name('appointment_info_store');
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware('auth')->group(function () {
     Route::resources([

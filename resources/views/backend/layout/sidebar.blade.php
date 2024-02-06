@@ -102,6 +102,16 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{route('payment.index')}}" class="nav-link {{$route == 'payment.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Payment Method List
+                
+              </p>
+            </a>
+          </li>
+
          <hr>
 
         </ul>

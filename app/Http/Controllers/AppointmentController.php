@@ -13,6 +13,9 @@ class AppointmentController extends Controller
     public function index()
     {
         //
+        $category = Category::orderBy('id', 'desc')->get();
+      
+        return view('backend.category.index',['category'=>$category]);
     }
 
     /**

@@ -34,6 +34,7 @@ class CategoryController extends Controller
     {
         //
         $category = Category::create($request->all());
+        
         return redirect()->route('category.index')->with('success','Data inserted successfully');
     }
 

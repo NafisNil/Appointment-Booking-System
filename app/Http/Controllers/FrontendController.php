@@ -10,6 +10,7 @@ use App\Models\Slot;
 use App\Models\Appointment;
 use App\Http\Requests\AppointmentRequest;
 use DB;
+use session;
 class FrontendController extends Controller
 {
     //
@@ -43,6 +44,7 @@ class FrontendController extends Controller
 
     public function appointment_info_store(Request $request){
 
+
          DB::transaction(function () use ($request){
              $patient = new User;
              $patient->name = $request->name;
@@ -60,8 +62,35 @@ class FrontendController extends Controller
                 'package_id' => $request->package_id,
                 'doctor_id' => $request->doctor_id
             ]);
-
-            return "successfully saved!";
+           $request->session()->put('appointment', $appointment->id);
+           $request->session()->put('patient', $patient->id);
+         //   return view('frontend.payment',['appointment' => $appointment->id, 'patient' => $patient->id]);
+   
          });
+        
+         return redirect()->route('patient_payment');
+    }
+
+    public function patient_payment(){
+        
+        //return view('frontend.patient_payment');
+        $response = Http::get('https://connectwithdratiq.health/slider_info');
+        $response_two = Http::get('https://connectwithdratiq.health/contact_info');
+        $slider = $response->json();
+        $contact = $response_two->json();
+        return view('frontend.payment', ['slider' => $slider, 'contact' => $contact]);
+    }
+
+    public function payment_info_store(Request $request){
+        $appointment = Appointment::where('id', $request->appointment_id)->first();
+        $appointment->payment_id = $request->payment_id;
+        $appointment->patient_id = $request->patient_id;
+        $appointment->trx_id = $request->trx_id;
+        $response = Http::get('https://connectwithdratiq.health/slider_info');
+        $response_two = Http::get('https://connectwithdratiq.health/contact_info');
+        $slider = $response->json();
+        $contact = $response_two->json();
+        $appointment->update();
+        return view('frontend.confirmation',['slider' => $slider, 'contact' => $contact]);
     }
 }

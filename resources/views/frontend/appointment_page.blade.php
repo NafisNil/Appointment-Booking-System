@@ -69,6 +69,10 @@
                           <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email." required>
                         </div>
                         <div class="col-sm-6 form-group">
+                          <label for="email">Phone</label>
+                          <input type="text" class="form-control" name="phone" id="" placeholder="Enter your phone." required>
+                        </div>
+                        <div class="col-sm-6 form-group">
                           <label for="address-1">Address </label>
                           <textarea name="address" id="" cols="30" rows="5" class="form-control" required></textarea>
                       
@@ -100,7 +104,7 @@
 
                           <div class="col-sm-6 form-group mt-2">
                             <label for="sex">&nbsp;Slot</label>
-                            <select id="" class="form-control browser-default custom-select" name="package_id">
+                            <select id="" class="form-control browser-default custom-select" name="slot_id">
                                 @foreach ($slot as $item)
                                 @php
                                     if ($item->day == '1') {
@@ -127,7 +131,7 @@
                             </select>
                           </div>
                         <input type="hidden" name="doctor_id" value="{{ $doctor_id }}">
-                  
+                    
                         <div class="col-sm-12 form-group mb-0 p-5">
                           <button class="btn btn-primary float-right" type="submit">Submit</button>
                         </div>

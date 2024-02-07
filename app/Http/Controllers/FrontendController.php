@@ -44,19 +44,25 @@ class FrontendController extends Controller
 
     public function appointment_info_store(Request $request){
 
-
          DB::transaction(function () use ($request){
-             $patient = new User;
-             $patient->name = $request->name;
-             $patient->email = $request->email;
-             $patient->phone = $request->phone;
-             $patient->address = $request->address;
-             $patient->age = $request->age;
-             $patient->gender = $request->gender;
-             $patient->password = "12345678";
-            $patient->role = '3';
-            $patient->save();
-
+            $count = User::where('email', $request->email)->count();
+           if ($count == 0) {
+            # code...
+                $patient = new User;
+                $patient->name = $request->name;
+                $patient->email = $request->email;
+                $patient->phone = $request->phone;
+                $patient->address = $request->address;
+                $patient->age = $request->age;
+                $patient->gender = $request->gender;
+                $patient->password = "12345678";
+                $patient->role = '3';
+                $patient->save();
+        }else{
+                $patient = User::where('email', $request->email)->first();
+                $patient->update($request->all());
+               
+        }
             $appointment = Appointment::create([
                 'slot_id' => $request->slot_id,
                 'package_id' => $request->package_id,

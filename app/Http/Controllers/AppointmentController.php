@@ -13,9 +13,9 @@ class AppointmentController extends Controller
     public function index()
     {
         //
-        $category = Category::orderBy('id', 'desc')->get();
+        $appointment = Appointment::orderBy('id', 'desc')->get();
       
-        return view('backend.category.index',['category'=>$category]);
+        return view('backend.appointment.index',['appointment'=>$appointment]);
     }
 
     /**
@@ -40,6 +40,7 @@ class AppointmentController extends Controller
     public function show(Appointment $appointment)
     {
         //
+        return view('backend.appointment.show',['appointment' => $appointment]);
     }
 
     /**
@@ -64,5 +65,21 @@ class AppointmentController extends Controller
     public function destroy(Appointment $appointment)
     {
         //
+    }
+
+    public function payment_status($id){
+        $appointment = Appointment::find($id);
+        if ($appointment->payment_status == '1') {
+            $appointment->payment_status = '0';
+        }else{
+            $appointment->payment_status = '1';
+        }
+        $appointment->save();
+        
+        return redirect()->back()->with('success', 'Approved!');
+    }
+
+    public function status($id){
+
     }
 }

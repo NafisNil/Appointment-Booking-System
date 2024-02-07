@@ -39,4 +39,14 @@ class Appointment extends Model
     {
         return $this->belongsTo(Package::class, 'package_id', 'id');
     }
+
+    /**
+     * Get the user that owns the Appointment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class, 'payment_id', 'id');
+    }
 }

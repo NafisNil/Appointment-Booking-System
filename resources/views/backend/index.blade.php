@@ -1,6 +1,6 @@
 @extends('backend.layout.master')
 @section('title')
-    Index - Looms Dashboard
+    Index - Connect with Dr Atiq Dashboard
 @endsection
 
 @section('content')

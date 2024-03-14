@@ -11,7 +11,7 @@
   <div class="form-group">
     <label for="exampleInputEmail1">Day <span style="color:red" >*</span></label>
    
-    <select class="form-control" id="dropdown" name="day">
+    <!--<select class="form-control" id="dropdown" name="day">
     
 
         
@@ -22,9 +22,9 @@
       <option value="5">Thursday</option>
       <option value="6">Friday</option>
       <option value="7">Saturday</option>
-    </select>
+    </select>-->
    
-   
+    <input type="date" class="form-control" name="day" value="{!!old('time',@$edit->day)!!}">
   </div>
 
   <div class="form-group">

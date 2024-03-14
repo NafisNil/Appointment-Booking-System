@@ -107,24 +107,14 @@
                             <select id="" class="form-control browser-default custom-select" name="slot_id">
                                 @foreach ($slot as $item)
                                 @php
-                                    if ($item->day == '1') {
-                                        $day = 'Sunday';
-                                    } elseif($item->day == '2') {
-                                        $day = 'Monday';
-                                    } elseif($item->day == '3') {
-                                        $day = 'Tuesday';
-                                    } elseif($item->day == '4') {
-                                        $day = 'Wednesday';
-                                    } elseif($item->day == '5') {
-                                        $day = 'Thursday';
-                                    } elseif($item->day == '6') {
-                                        $day = 'Friday';
-                                    } elseif($item->day == '7') {
-                                        $day = 'Saturday';
-                                    }
-                                    
-                                @endphp
-                                <option value="{{ $item->id }}">  {{ $day }} - {{ $item->time }} </option>
+                                $timeString = $item->time;
+                                $time = Carbon\Carbon::parse($timeString);
+                                $dateString = $item->day;
+                                $date = Carbon\Carbon::parse($dateString);
+                            @endphp
+
+                           
+                                <option value="{{ $item->id }}">   {{ $date->format('d M, Y') }} - {{ $time->format('h:i a') }} </option>
                                 @endforeach
                              
 

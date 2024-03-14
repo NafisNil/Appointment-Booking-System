@@ -59,23 +59,21 @@
                    
                   <tr>
                     <td>{{++$key}}</td>
-                    <td>{!! $item->time !!}</td>
                     <td>
-                      @if ($item->day == 1)
-                          Sunday
-                      @elseif($item->day == 2)
-                          Monday
-                      @elseif($item->day == 3)
-                        Tuesday
-                      @elseif($item->day == 4)
-                        Wednesday
-                      @elseif($item->day == 5)
-                        Thursaday
-                      @elseif($item->day == 6)
-                        Friday
-                      @elseif($item->day == 7)
-                        Saturday
-                      @endif
+                      @php
+                          $timeString = $item->time;
+                          $time = Carbon\Carbon::parse($timeString);
+
+                      @endphp
+                     {{ $time->format('h:i a') }}
+                    </td>
+                    <td>
+                     @php
+                         $dateString = $item->day;
+                        $date = Carbon\Carbon::parse($dateString);
+
+                     @endphp
+                     {{ $date->format('d M, Y') }}
                     </td>
                     <td>{!! $item->doctor->name !!}</td>
                    <td>
